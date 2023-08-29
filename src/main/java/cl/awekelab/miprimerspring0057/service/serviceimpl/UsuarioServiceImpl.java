@@ -1,13 +1,21 @@
 package cl.awekelab.miprimerspring0057.service.serviceimpl;
 import cl.awekelab.miprimerspring0057.entity.Usuario;
+import cl.awekelab.miprimerspring0057.repository.IAlumnoRepository;
+import cl.awekelab.miprimerspring0057.repository.IUsuarioRepository;
 import cl.awekelab.miprimerspring0057.service.IUsuarioService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 
+@Service("usuarioServiceImpl")
 public class UsuarioServiceImpl implements IUsuarioService {
+
+    @Autowired
+    IUsuarioRepository objUsuarioRepo;
     @Override
     public Usuario crearUsuario(Usuario nuevoUsuario) {
-        return null;
+        return objUsuarioRepo.save(nuevoUsuario);
     }
 
     @Override
@@ -17,7 +25,7 @@ public class UsuarioServiceImpl implements IUsuarioService {
 
     @Override
     public List<Usuario> listarUsuario() {
-        return null;
+        return objUsuarioRepo.findAll();
     }
 
     @Override

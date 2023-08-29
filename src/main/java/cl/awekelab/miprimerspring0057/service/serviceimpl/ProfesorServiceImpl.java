@@ -6,6 +6,7 @@ import cl.awekelab.miprimerspring0057.service.IProfesorService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Service("profesorServiceImpl")
@@ -26,11 +27,16 @@ public class ProfesorServiceImpl implements IProfesorService {
 
     @Override
     public List<Profesor> listarProfesor() {
-        return null;
+        List<Profesor> listaMostrar = new ArrayList<Profesor>();
+        listaMostrar = objProfesorRepo.findAll();
+        return listaMostrar;
     }
 
     @Override
     public Profesor listarProfesorID(int idProfesor) {
+       /* Profesor elegido = new Profesor();
+        elegido =objProfesorRepo.findById(idProfesor);
+        */
         return null;
     }
 

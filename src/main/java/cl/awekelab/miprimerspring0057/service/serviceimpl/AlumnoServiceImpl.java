@@ -1,6 +1,7 @@
 package cl.awekelab.miprimerspring0057.service.serviceimpl;
 
 import cl.awekelab.miprimerspring0057.entity.Alumno;
+import cl.awekelab.miprimerspring0057.repository.IAlumnoRepository;
 import cl.awekelab.miprimerspring0057.service.IAlumnoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -9,11 +10,14 @@ import java.util.List;
 
 @Service("alumnoServiceImpl")
 public class AlumnoServiceImpl implements IAlumnoService {
-   @Autowired
+    @Autowired
+    IAlumnoRepository objAlumnoRepo;
 
     @Override
-    public Alumno crearAlumno(Alumno nuevoAlumno) {
-        return null;
+    public Alumno crearAlumno(Alumno crearAlumno) {
+        Alumno nuevoAlumno = new Alumno();
+        nuevoAlumno = objAlumnoRepo.save(crearAlumno);
+        return nuevoAlumno;
     }
 
     @Override
@@ -23,7 +27,7 @@ public class AlumnoServiceImpl implements IAlumnoService {
 
     @Override
     public List<Alumno> listarAlumnos() {
-        return null;
+        return objAlumnoRepo.findAll();
     }
 
     @Override
