@@ -1,7 +1,7 @@
-package cl.awekelab.miprimerspring0057.service.serviceimpl;
-import cl.awekelab.miprimerspring0057.entity.Usuario;
-import cl.awekelab.miprimerspring0057.repository.IUsuarioRepository;
-import cl.awekelab.miprimerspring0057.service.IUsuarioService;
+package cl.awakelab.miprimerspring0057.service.serviceimpl;
+import cl.awakelab.miprimerspring0057.entity.Usuario;
+import cl.awakelab.miprimerspring0057.repository.IUsuarioRepository;
+import cl.awakelab.miprimerspring0057.service.IUsuarioService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import java.util.List;

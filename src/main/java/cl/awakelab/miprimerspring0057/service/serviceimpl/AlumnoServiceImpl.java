@@ -1,7 +1,7 @@
-package cl.awekelab.miprimerspring0057.service.serviceimpl;
-import cl.awekelab.miprimerspring0057.entity.Alumno;
-import cl.awekelab.miprimerspring0057.repository.IAlumnoRepository;
-import cl.awekelab.miprimerspring0057.service.IAlumnoService;
+package cl.awakelab.miprimerspring0057.service.serviceimpl;
+import cl.awakelab.miprimerspring0057.service.IAlumnoService;
+import cl.awakelab.miprimerspring0057.entity.Alumno;
+import cl.awakelab.miprimerspring0057.repository.IAlumnoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

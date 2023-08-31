@@ -1,4 +1,4 @@
-package cl.awekelab.miprimerspring0057;
+package cl.awakelab.miprimerspring0057;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

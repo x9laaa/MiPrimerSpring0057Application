@@ -1,5 +1,5 @@
-package cl.awekelab.miprimerspring0057.service;
-import cl.awekelab.miprimerspring0057.entity.Alumno;
+package cl.awakelab.miprimerspring0057.service;
+import cl.awakelab.miprimerspring0057.entity.Alumno;
 import java.util.List;
 
 public interface IAlumnoService {

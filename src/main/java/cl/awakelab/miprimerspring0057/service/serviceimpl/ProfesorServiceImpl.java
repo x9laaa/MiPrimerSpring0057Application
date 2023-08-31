@@ -1,7 +1,7 @@
-package cl.awekelab.miprimerspring0057.service.serviceimpl;
-import cl.awekelab.miprimerspring0057.entity.Profesor;
-import cl.awekelab.miprimerspring0057.repository.IProfesorRepository;
-import cl.awekelab.miprimerspring0057.service.IProfesorService;
+package cl.awakelab.miprimerspring0057.service.serviceimpl;
+import cl.awakelab.miprimerspring0057.entity.Profesor;
+import cl.awakelab.miprimerspring0057.repository.IProfesorRepository;
+import cl.awakelab.miprimerspring0057.service.IProfesorService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import java.util.ArrayList;
