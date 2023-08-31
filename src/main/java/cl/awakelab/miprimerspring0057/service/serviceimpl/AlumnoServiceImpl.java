@@ -20,8 +20,13 @@ public class AlumnoServiceImpl implements IAlumnoService {
     }
 
     @Override
-    public Alumno actualizarAlumno(int id) {
-        return null;
+    public Alumno actualizarAlumno(int id,Alumno alumnoActualizar) {
+        Alumno alumnoEncontrado = objAlumnoRepo.findById(id).orElse(null);
+        alumnoEncontrado.setNombres(alumnoActualizar.getNombres());
+        alumnoEncontrado.setApellido1(alumnoActualizar.getApellido1());
+        alumnoEncontrado.setApellido2(alumnoActualizar.getApellido2());
+        alumnoEncontrado.setCursoAsignado(alumnoActualizar.getCursoAsignado());
+        return objAlumnoRepo.save(alumnoEncontrado);
     }
 
     @Override
@@ -31,11 +36,17 @@ public class AlumnoServiceImpl implements IAlumnoService {
 
     @Override
     public Alumno listarAlumnosID(int idAlumno) {
-        return null;
+        return objAlumnoRepo.findById(idAlumno).orElse(null);
     }
 
     @Override
     public void eliminarAlumno(int id) {
+        objAlumnoRepo.deleteById(id);
 
+    }
+
+    @Override
+    public void eliminarAlumno2(Alumno alumno) {
+        objAlumnoRepo.delete(alumno);
     }
 }
