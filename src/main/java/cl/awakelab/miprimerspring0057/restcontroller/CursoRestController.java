@@ -1,4 +1,4 @@
 package cl.awakelab.miprimerspring0057.restcontroller;
 
-public class ProfesorRestControlller {
+public class CursoRestController {
 }
