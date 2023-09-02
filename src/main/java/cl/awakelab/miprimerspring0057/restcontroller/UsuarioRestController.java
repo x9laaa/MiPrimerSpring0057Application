@@ -18,8 +18,24 @@ public class UsuarioRestController {
     public Usuario crearUsuario(@RequestBody Usuario usuario){
         return objUsuarioService.crearUsuario(usuario);
     }
+    @PutMapping
+    public Usuario actualizarUsuario(int id, Usuario usuario){
+        return objUsuarioService.actualizarUsuario(id,usuario);
+    }
     @GetMapping
     public List<Usuario> listarUsuario(){
         return objUsuarioService.listarUsuario();
+    }
+    @GetMapping("/{idUsuario}")
+    public Usuario listarUsuarioID(int idUsuario){
+        return objUsuarioService.listarUsuarioID(idUsuario);
+    }
+    @DeleteMapping("/{id}")
+    public void eliminarUsuario(int id){
+        objUsuarioService.eliminarUsuario(id);
+    }
+    @DeleteMapping
+    public void eliminarUsuario2(Usuario usuario){
+        objUsuarioService.eliminarUsuario2(usuario);
     }
 }
