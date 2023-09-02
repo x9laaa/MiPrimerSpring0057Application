@@ -27,15 +27,15 @@ public class UsuarioRestController {
         return objUsuarioService.listarUsuario();
     }
     @GetMapping("/{idUsuario}")
-    public Usuario listarUsuarioID(int idUsuario){
+    public Usuario listarUsuarioID(@PathVariable int idUsuario){
         return objUsuarioService.listarUsuarioID(idUsuario);
     }
     @DeleteMapping("/{id}")
-    public void eliminarUsuario(int id){
+    public void eliminarUsuario(@PathVariable int id){
         objUsuarioService.eliminarUsuario(id);
     }
     @DeleteMapping
-    public void eliminarUsuario2(Usuario usuario){
+    public void eliminarUsuario2(@RequestBody Usuario usuario){
         objUsuarioService.eliminarUsuario2(usuario);
     }
 }
