@@ -21,17 +21,20 @@ public class AlumnoRestController {
     public List<Alumno> listarAlumno(){
         return objAlumnoService.listarAlumnos();
     }
+    @GetMapping("/{idAlumno}")
+    public Alumno listarAlumnosID(@PathVariable int idAlumno){
+        return objAlumnoService.listarAlumnosID(idAlumno);
+    }
     @PutMapping
     public Alumno actualizarAlumno(@PathVariable int id,@RequestBody Alumno alumno){
         return objAlumnoService.actualizarAlumno(id,alumno);
     }
-    /*
-    @DeleteMapping
+
+    @DeleteMapping("/{id}")
     public void eliminarAlumno(@PathVariable int id){
         objAlumnoService.eliminarAlumno(id);
     }
 
-     */
     @DeleteMapping
     public void eliminarAlumno2(@RequestBody Alumno alumno){
         objAlumnoService.eliminarAlumno2(alumno);

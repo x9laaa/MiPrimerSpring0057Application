@@ -17,8 +17,10 @@ public class CursoServiceImpl implements ICursoService {
     }
 
     @Override
-    public Curso actualizarCurso(int id) {
-        return null;
+    public Curso actualizarCurso(int id, Curso curso) {
+        Curso cursoActulizar = objCursoRepo.findById(id).orElse(null);
+        cursoActulizar.setNombreCurso(curso.getNombreCurso());
+        return objCursoRepo.save(cursoActulizar);
     }
 
     @Override
@@ -28,11 +30,15 @@ public class CursoServiceImpl implements ICursoService {
 
     @Override
     public Curso listarCursoID(int idCurso) {
-        return null;
+        return objCursoRepo.findById(idCurso).orElse(null);
     }
 
     @Override
     public void eliminarCurso(int id) {
-
+        objCursoRepo.deleteById(id);
+    }
+    @Override
+    public void eliminarCurso2(Curso curso) {
+        objCursoRepo.delete(curso);
     }
 }
