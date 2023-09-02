@@ -9,7 +9,8 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @Entity
 @Table(name = "alumnos")
-public class Alumno {
+
+public class Alumno  {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
@@ -23,7 +24,8 @@ public class Alumno {
     @Column(length = 30)
     private String apellido2;
 
-    @ManyToOne(optional = false, cascade = CascadeType.ALL, fetch = FetchType.EAGER)
-    @JoinColumn(name = "FK_Curso", nullable = false)
+
+    @ManyToOne(optional = false,cascade = CascadeType.ALL,fetch = FetchType.EAGER)
+    @JoinColumn(name = "FK_Curso",nullable = false)
     private Curso cursoAsignado;
 }

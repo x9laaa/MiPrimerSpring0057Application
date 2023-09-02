@@ -42,9 +42,7 @@ public class AlumnoServiceImpl implements IAlumnoService {
     @Override
     public void eliminarAlumno(int id) {
         objAlumnoRepo.deleteById(id);
-
     }
-
     @Override
     public void eliminarAlumno2(Alumno alumno) {
         objAlumnoRepo.delete(alumno);
