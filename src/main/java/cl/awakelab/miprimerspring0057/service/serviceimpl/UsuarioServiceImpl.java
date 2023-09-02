@@ -33,6 +33,9 @@ public class UsuarioServiceImpl implements IUsuarioService {
 
     @Override
     public void eliminarUsuario(int id) {
+    }
+    @Override
+    public void eliminarUsuario2(Usuario usuario) {
 
     }
 }
