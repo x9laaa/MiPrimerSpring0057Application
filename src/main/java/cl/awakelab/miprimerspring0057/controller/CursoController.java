@@ -34,4 +34,5 @@ public class CursoController {
         objCursoService.crearCurso(curso);
         return "redirect:/cursos";
     }
+
 }

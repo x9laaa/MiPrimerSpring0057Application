@@ -11,7 +11,7 @@
 <header th:include="~{../static/html/header.html}">  </header>
 <section CLASS="container">
   <h2>Crear un nuevo curso</h2>
-  <form method="post" th:action="@{/cursos/crear}">
+  <form method="post" th:action="{/cursos/crear}">
     <label for="nombreCurso">Letra asignada:</label>
     <input type="text" id="nombreCurso" name="nombreCurso" th:field="*{nombreCurso}" required>
     <br>
