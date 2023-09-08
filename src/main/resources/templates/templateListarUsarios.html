@@ -10,7 +10,7 @@
 <body>
 <header th:include="~{../static/html/header.html}">  </header>
 <section class="container col-12">
-    <table class="Table">
+    <table class="table table-striped">
         <thead>
         <tr>
             <th>ID</th>
@@ -24,7 +24,7 @@
             <td th:text="${usuario.nombreUsuario}"></td>
             <td th:text="${usuario.rol}"></td>
             <td>
-                <div class="row m-4 ">
+                <div class="row m-4">
                     <div class="col-6">
                         <form th:action="@{/usuario/editar/{id}(id=${usuario.id})}"
                               method="get">

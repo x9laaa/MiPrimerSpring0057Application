@@ -1,21 +1,44 @@
 <header>
   <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <div class="container">
-      <a class="navbar-brand" href="#">Inicio</a>
+      <a class="navbar-brand" href="/">Inicio</a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
               aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav">
-          <li class="nav-item">
-            <a class="nav-link" href="/usuario">Usuarios</a>
+
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="/usuario" role="button" data-bs-toggle="dropdown" aria-expanded="false">Usuarios</a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="/usuario">listar</a></li>
+              <li><a class="dropdown-item" href="/usuario/crear">Crear</a></li>
+            </ul>
           </li>
-          <li class="nav-item">
-            <a class="nav-link" href="/cursos">Cursos</a>
+
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="/cursos" role="button" data-bs-toggle="dropdown" aria-expanded="false">Cursos</a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="/cursos">listar</a></li>
+              <li><a class="dropdown-item" href="/cursos/crear">Crear</a></li>
+            </ul>
           </li>
+
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="/alumno" role="button" data-bs-toggle="dropdown" aria-expanded="false">alumnos</a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="/alumno">listar</a></li>
+              <li><a class="dropdown-item" href="/alumno/crear">Crear</a></li>
+            </ul>
+          </li>
+
+
         </ul>
       </div>
     </div>
+
+
   </nav>
+
 </header>

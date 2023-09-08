@@ -31,6 +31,7 @@ public class UsuarioController {
         objUsuarioService.crearUsuario(usuario);
         return "redirect:/usuario";
     }
+
     @PostMapping("/eliminar/{id}")
     public String crearUsuario(@PathVariable int id){
         objUsuarioService.eliminarUsuario(id);
