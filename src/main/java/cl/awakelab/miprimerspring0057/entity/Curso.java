@@ -30,4 +30,6 @@ public class Curso {
     @OneToMany(mappedBy = "cursoAsignado")
     private List<Alumno> listaAlumnos;
 
+
+
 }
