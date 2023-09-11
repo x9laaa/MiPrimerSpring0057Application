@@ -12,24 +12,22 @@
 <section CLASS="container">
     <h2>Crear Alumno</h2>
 
-    <form method="post" th:action="@{/profesor/crear}">
+    <form method="post" th:action="@{/cursos/asignarProfe}">
         <div>
-            <label for="nombres" class="form-label">Nombres:</label>
-            <input type="text" class="form-control" id="nombres" name="nombres" required>
+            <label for="Curso" class="form-label">Curso:</label>
+            <select class="form-control" name="idCurso" id="Curso" required>
+                <option th:each="curso :${atributoListarCursos}" th:value="${curso.id}" th:text="${curso.nombreCurso}"></option>
+            </select>
         </div>
-
         <div>
-            <label for="Apellido1" class="form-label">Apellido paterno:</label>
-            <input type="text" class="form-control" id="Apellido1" name="apellido1" required>
-        </div>
-
-        <div>
-            <label for="Apellido2" class="form-label">Apellido materno:</label>
-            <input type="text" class="form-control" id="Apellido2" name="apellido2" required>
+            <label for="Profe" class="form-label">Profesor:</label>
+            <select class="form-control" name="idProfesor" id="Profe" required>
+                <option th:each="profe :${atributoListaProfes}" th:value="${profe.id}" th:text="${profe.nombres+' '+profe.apellido1+' '+profe.apellido2}"></option>
+            </select>
         </div>
 
         <br>
-        <button type="submit" class="btn btn-primary">Crear profesor</button>
+        <button type="submit" class="btn btn-primary">Asignar profesor</button>
     </form>
 
 </section>

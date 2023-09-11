@@ -5,6 +5,7 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.util.ArrayList;
 import java.util.List;
 
 
@@ -22,14 +23,15 @@ public class Curso {
     @Column(length = 10)
     private String nombreCurso;
 
-    @JsonIgnore
-    @ManyToMany(mappedBy = "listaCursos")
-    private List<Profesor> listaProfesores;
+    @ManyToMany(fetch = FetchType.LAZY)
+    @JoinTable(
+            name = "Curso_profesor",
+            joinColumns = @JoinColumn(name = "FK_Curso", nullable = false),
+            inverseJoinColumns = @JoinColumn(name = "FK_Profesor", nullable = false))
+    private List<Profesor> listaProfesores = new ArrayList<>();
 
     @JsonIgnore
     @OneToMany(mappedBy = "cursoAsignado")
     private List<Alumno> listaAlumnos;
-
-
 
 }

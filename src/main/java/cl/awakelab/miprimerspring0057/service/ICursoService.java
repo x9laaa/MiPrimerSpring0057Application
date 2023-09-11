@@ -13,6 +13,6 @@ public interface ICursoService {
     public Curso listarCursoID(int idCurso);
     public void eliminarCurso(int id);
     public void eliminarCurso2(Curso curso);
-    public void asignarProfesor(int idCurso, Profesor profesor);
+    public void asignarProfesor(int idCurso, int idProfesor);
 
 }
