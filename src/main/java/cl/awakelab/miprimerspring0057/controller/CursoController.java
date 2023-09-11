@@ -1,7 +1,9 @@
 package cl.awakelab.miprimerspring0057.controller;
 
+import cl.awakelab.miprimerspring0057.entity.Alumno;
 import cl.awakelab.miprimerspring0057.entity.Curso;
 import cl.awakelab.miprimerspring0057.entity.Profesor;
+import cl.awakelab.miprimerspring0057.service.IAlumnoService;
 import cl.awakelab.miprimerspring0057.service.ICursoService;
 import cl.awakelab.miprimerspring0057.service.IProfesorService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,6 +21,10 @@ public class CursoController {
 
     @Autowired
     IProfesorService objProfesorService;
+
+
+    @Autowired
+    IAlumnoService objAlumnoService;
 
     @GetMapping
     public String listarCursos(Model model){
@@ -55,6 +61,21 @@ public class CursoController {
         System.out.println("id Curso: "+idCurso);
         System.out.println("id Profe: "+idProfesor);
         objCursoService.asignarProfesor(idCurso, idProfesor);
+        return "redirect:/cursos";
+    }
+
+    @GetMapping("/asignarAlumno")
+    public String mostrarFormularioAsignarAlumno(Model model){
+        List<Alumno> listaAlumnos = objAlumnoService.listarAlumnos();
+        model.addAttribute("atributoListaAlumnos", listaAlumnos);
+        List<Curso> listaCursos = objCursoService.listarCurso();
+        model.addAttribute("atributoListarCursos", listaCursos);
+        return "templateAsignarAlumno";
+    }
+
+    @PostMapping("/asignarAlumno")
+    public String asiganarAlumno(@RequestParam int idCurso,@RequestParam int idAlumno) {
+        objCursoService.asignarAlumno(idCurso,idAlumno);
         return "redirect:/cursos";
     }
 

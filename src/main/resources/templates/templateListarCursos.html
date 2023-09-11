@@ -15,7 +15,8 @@
     <tr>
       <th>ID</th>
       <th>Nombre Curso</th>
-      <th>profesores</th>
+      <th>Profesores</th>
+      <th>Alumnos</th>
     </tr>
     </thead>
     <tbody>
@@ -27,7 +28,11 @@
           <li th:each="profesor : ${curso.listaProfesores}" th:text="${profesor.nombres}"></li>
         </ul>
       </td>
-
+      <td>
+        <ul>
+          <li th:each="alumno : ${curso.listaAlumnos}" th:text="${alumno.nombres+' '+alumno.apellido1}"></li>
+        </ul>
+      </td>
       <td>
         <div class="row m-4">
           <div class="col-6">

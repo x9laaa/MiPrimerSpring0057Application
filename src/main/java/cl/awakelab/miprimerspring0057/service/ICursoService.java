@@ -15,4 +15,6 @@ public interface ICursoService {
     public void eliminarCurso2(Curso curso);
     public void asignarProfesor(int idCurso, int idProfesor);
 
+    public void asignarAlumno(int idCurso, int idAlumno);
+
 }
