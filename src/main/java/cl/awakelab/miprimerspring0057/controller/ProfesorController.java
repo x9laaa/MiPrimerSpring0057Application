@@ -1,4 +1,5 @@
 package cl.awakelab.miprimerspring0057.controller;
+import cl.awakelab.miprimerspring0057.entity.Alumno;
 import cl.awakelab.miprimerspring0057.entity.Profesor;
 import cl.awakelab.miprimerspring0057.service.IProfesorService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,11 +14,11 @@ import java.util.List;
 public class ProfesorController {
 
     @Autowired
-    IProfesorService objprofesorService;
+    IProfesorService objProfesorService;
 
     @GetMapping
     public String listarProfesor(Model model){
-        List<Profesor> listaProfes = objprofesorService.listarProfesor();
+        List<Profesor> listaProfes = objProfesorService.listarProfesor();
         model.addAttribute("atributoListarProfes", listaProfes);
         return "templateListarProfesores";
     }
@@ -27,13 +28,25 @@ public class ProfesorController {
     }
     @PostMapping("/crear")
     public String crearProfesor(@ModelAttribute Profesor profesor) {
-        objprofesorService.crearProfesor(profesor);
+        objProfesorService.crearProfesor(profesor);
         return "redirect:/profesor";
     }
 
     @PostMapping("/eliminar/{id}")
     public String eliminarProfesor(@PathVariable int id){
-        objprofesorService.eliminarProfesor(id);
+        objProfesorService.eliminarProfesor(id);
+        return "redirect:/profesor";
+    }
+    @GetMapping("/editar/{id}")
+    public String formularioEditarProfesor(@PathVariable int id, Model model){
+        Profesor profesor=objProfesorService.listarProfesorID(id);
+        model.addAttribute("atributoProfesor", profesor);
+
+        return "templateEditarProfesor";
+    }
+    @PostMapping("/editar")
+    public String editarProfesor(@ModelAttribute Profesor profesor){
+        objProfesorService.actualizarProfesor(profesor.getId(), profesor);
         return "redirect:/profesor";
     }
 
