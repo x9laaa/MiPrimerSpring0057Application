@@ -79,6 +79,20 @@ public class CursoController {
         return "redirect:/cursos";
     }
 
+    @GetMapping("/editar/{id}")
+    public String formularioEditarCurso(@PathVariable int id, Model model){
+
+        Curso curso = objCursoService.listarCursoID(id);
+        model.addAttribute("attributeCurso",curso);
+        return "templateEditarCurso";
+    }
+
+    @PostMapping("/editar")
+    public String editarCurso(@ModelAttribute Curso curso){
+        objCursoService.actualizarCurso(curso.getId(), curso);
+        return "redirect:/cursos";
+    }
+
 
 
 }
