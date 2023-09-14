@@ -49,7 +49,14 @@ public class CursoServiceImpl implements ICursoService{
 
     @Override
     public void eliminarCurso(int id) {
-        objCursoRepo.deleteById(id);
+
+        Curso curso=objCursoRepo.findById(id).orElse(null);
+        if (curso!=null){
+            curso.getListaAlumnos().clear();
+            curso.getListaProfesores().clear();
+            objCursoRepo.save(curso);
+            objCursoRepo.deleteById(id);
+        }
     }
     @Override
     public void eliminarCurso2(Curso curso) {

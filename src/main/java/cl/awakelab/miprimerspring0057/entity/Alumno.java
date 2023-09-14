@@ -25,7 +25,7 @@ public class Alumno  {
     @Column(length = 30)
     private String apellido2;
 
-    @ManyToOne(optional = false ,fetch = FetchType.EAGER )
-    @JoinColumn(name = "FK_Curso",nullable = false)
+    @ManyToOne(fetch = FetchType.EAGER )
+    @JoinColumn(name = "FK_Curso")
     private Curso cursoAsignado;
 }
