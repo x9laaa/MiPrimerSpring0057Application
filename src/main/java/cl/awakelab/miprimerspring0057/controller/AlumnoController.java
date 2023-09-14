@@ -42,4 +42,19 @@ public class AlumnoController {
         objAlumnoService.eliminarAlumno(id);
         return "redirect:/alumno";
     }
+
+    @GetMapping("/editar/{id}")
+    public String formularioEditarCliente(@PathVariable int id, Model model){
+        List<Curso> listaCurso=objCursoService.listarCurso();
+        model.addAttribute("atributoListarCursos", listaCurso);
+        Alumno alumno = objAlumnoService.listarAlumnosID(id);
+        model.addAttribute("attributeAlumno",alumno);
+        return "templateEditarAlumno";
+    }
+
+    @PostMapping("/editar")
+    public String editarCliente(@ModelAttribute Alumno alumno){
+        objAlumnoService.actualizarAlumno(alumno.getId(), alumno);
+        return "redirect:/alumno";
+    }
 }
