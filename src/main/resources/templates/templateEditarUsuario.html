@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Editar Usuario</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+</head>
+<body>
+<header th:insert="~{../static/html/header.html}"></header>
+<section CLASS="container">
+    <h2>Editar Usuario</h2>
+
+    <form method="post" th:action="@{/usuario/editar}">
+        <div>
+            <label for="id"></label>
+            <input type="hidden" id="id" name="id" th:value="${atributoUsuario.id}">
+        </div>
+
+        <div>
+            <label for="nombreAlumno" class="form-label">Nombre:</label>
+            <input type="text" class="form-control" id="nombreAlumno" name="nombreUsuario"
+                   th:value="${atributoUsuario.nombreUsuario}" required>
+        </div>
+
+        <div>
+            <label for="contra" class="form-label">Contraseña:</label>
+            <input type="password" class="form-control" id="contra" name="contrasena"
+                   th:value="${atributoUsuario.contrasena}" required>
+        </div>
+
+        <div>
+            <label for="rol" class="form-label">
+                rol:
+            </label>
+            <select class="form-control" name="rol" id="rol" required>
+                <option value="Profesor" th:selected="${atributoUsuario.rol=='Profesor'}">Profesor</option>
+                <option value="Estudiante" th:selected="${atributoUsuario.rol=='Estudiante'}">Estudiante</option>
+                <option value="Administrador" th:selected="${atributoUsuario.rol=='Administrador'}">Administrador</option>
+            </select>
+
+        </div>
+        <br>
+        <button type="submit" class="btn btn-primary">Guardar Cambios</button>
+    </form>
+
+</section>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz"
+        crossorigin="anonymous"></script>
+</body>
+</html>

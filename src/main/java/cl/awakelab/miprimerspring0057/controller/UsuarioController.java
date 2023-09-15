@@ -1,5 +1,6 @@
 package cl.awakelab.miprimerspring0057.controller;
 
+import cl.awakelab.miprimerspring0057.entity.Profesor;
 import cl.awakelab.miprimerspring0057.entity.Usuario;
 import cl.awakelab.miprimerspring0057.service.IUsuarioService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -37,6 +38,19 @@ public class UsuarioController {
         objUsuarioService.eliminarUsuario(id);
         return "redirect:/usuario";
     }
+    @GetMapping("/editar/{id}")
+    public String formularioEditarUsuario(@PathVariable int id, Model model){
+        Usuario usuario = objUsuarioService.listarUsuarioID(id);
+        model.addAttribute("atributoUsuario", usuario);
+
+        return "templateEditarUsuario";
+    }
+    @PostMapping("/editar")
+    public String editarUsuario(@ModelAttribute Usuario usuario){
+        objUsuarioService.actualizarUsuario(usuario.getId(),usuario);
+        return "redirect:/usuario";
+    }
+
 
 
 }

@@ -1,4 +1,6 @@
 package cl.awakelab.miprimerspring0057.entity;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -27,6 +29,7 @@ public class Profesor {
     @Column(length = 30)
     private String apellido2;
 
+    @JsonIgnoreProperties("listaProfesores")
     @ManyToMany(fetch = FetchType.LAZY)
     @JoinTable(
             name = "curso_profesor",

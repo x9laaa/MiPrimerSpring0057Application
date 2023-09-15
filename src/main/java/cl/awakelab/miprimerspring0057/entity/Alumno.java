@@ -1,11 +1,10 @@
 package cl.awakelab.miprimerspring0057.entity;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
-@Data
+@Getter
+@Setter
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
@@ -25,7 +24,7 @@ public class Alumno  {
     @Column(length = 30)
     private String apellido2;
 
-    @ManyToOne(fetch = FetchType.EAGER )
+    @ManyToOne(optional = false, cascade = CascadeType.PERSIST , fetch = FetchType.EAGER)
     @JoinColumn(name = "FK_Curso")
     private Curso cursoAsignado;
 }
